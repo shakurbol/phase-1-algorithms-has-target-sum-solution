@@ -1,14 +1,57 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  function hasTargetSum(array, target) {
+    const seenNumbers = new Set();
+    for (const number of array) {
+      const complement = target - number;
+      if (seenNumbers.has(complement)) {
+        return true;
+      }
+
+      seenNumbers.add(number);
+    }
+  
+    return false;
+  }
+  
 }
 
 /* 
   Write the Big O time complexity of your function here
 */
+function hasTargetSum(array, target) {
+  const seenNumbers = new Set();
+  
+  for (const number of array) {
+    const complement = target - number; 
+  
+    if (seenNumbers.has(complement)) {
+      return true; 
+    }
+    
+    seenNumbers.add(number);
+  }
+  
+  return false; 
+}
 
 /* 
   Add your pseudocode here
 */
+function hasTargetSum(array, target) {
+
+  for (let i = 0; i < array.length; i++) {
+    const currentNumber = array[i];
+    const complement = target - currentNumber;
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[j] === complement) {
+        return true;
+      }
+    }
+  }
+  
+  return false;
+}
 
 /*
   Add written explanation of your solution here
